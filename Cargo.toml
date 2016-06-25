@@ -1,0 +1,9 @@
+[package]
+name = "arcade-rs"
+version = "0.1.0"
+authors = ["Letheed <dev@daweb.se>"]
+
+[dependencies]
+sdl2 = "0.19"
+sdl2_image = "0.19"
+time = "^0"
