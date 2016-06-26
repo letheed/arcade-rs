@@ -1,9 +1,7 @@
 use assets::Assets;
 use game::Game;
-use sdl::pixels::Color;
 use sdl::render::Renderer;
 use state::State;
-use state::input::KeyEvent::*;
 use self::ViewType::*;
 
 pub enum ViewAction {
@@ -30,6 +28,9 @@ impl<'a> View<'a> {
     }
 
     pub fn render(&mut self, state: &State, renderer: &mut Renderer) -> ViewAction {
+        use sdl::pixels::Color;
+        use state::input::KeyEvent::*;
+
         let events = &state.events;
         let input = &state.input;
         if events.quit || input.key_escape {

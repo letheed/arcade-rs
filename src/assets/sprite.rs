@@ -3,6 +3,28 @@ use sdl::render::{Renderer, Texture, TextureQuery};
 use sdl_img::LoadTexture;
 use std::path::Path;
 
+pub struct Sprite {
+    texture: Texture,
+    pub width: u32,
+    pub height: u32,
+}
+
+impl Sprite {
+    pub fn new(renderer: &Renderer, texture_path: &str) -> Self {
+        let texture = renderer.load_texture(Path::new(texture_path)).unwrap();
+        let TextureQuery { width: tex_width, height: tex_height, .. } = texture.query();
+        Sprite {
+            texture: texture,
+            width: tex_width,
+            height: tex_height,
+        }
+    }
+
+    pub fn render(&self, renderer: &mut Renderer, surface: SdlRect) {
+        renderer.copy(&self.texture, None, Some(surface));
+    }
+}
+
 pub struct SpriteSheet {
     texture: Texture,
     rows: u32,

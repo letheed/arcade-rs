@@ -13,7 +13,7 @@ pub struct Ship<'a> {
 impl<'a> Ship<'a> {
     pub fn new(sprite: &'a SpriteSheet) -> Self {
         Ship {
-            speed: 400. * 1E-6, // px/µs
+            speed: 400. * 1E-6, // px/ms
             surface: Rectangle::new(64.0, 64.0, sprite.width as f64, sprite.height as f64),
             sprite_sheet: sprite,
             sprite_coord: (0, 1),

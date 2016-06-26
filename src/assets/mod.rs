@@ -1,16 +1,22 @@
 use sdl::render::Renderer;
-use self::sprite::SpriteSheet;
+use self::sprite::{Sprite, SpriteSheet};
 
 pub mod sprite;
 
 pub struct Assets {
-    pub ship: SpriteSheet,
+    pub spaceship: SpriteSheet,
+    pub star_bg: Sprite,
+    // pub star_mg: Sprite,
+    pub star_fg: Sprite,
 }
 
 impl Assets {
     pub fn load(renderer: &Renderer) -> Self {
         Assets {
-            ship: SpriteSheet::new(renderer, &full_path!("assets/spaceship.png"), (3, 3)),
-        }
+            spaceship: SpriteSheet::new(renderer, &full_path!("assets/spaceship.png"), (3, 3)),
+            star_bg: Sprite::new(renderer, &full_path!("assets/starBG.png")),
+            // star_mg: Sprite::new(renderer, &full_path!("assets/starMG.png")),
+            star_fg: Sprite::new(renderer, &full_path!("assets/starFG.png")),
+          }
     }
 }

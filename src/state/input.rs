@@ -13,8 +13,8 @@ pub enum KeyEvent {
 }
 
 macro_rules! impl_input {
-    ( keyboard { $($key_name:ident: $key_code:ident,)*     },
-      process  { $($event_name:ident: $event_code:ident,)* },
+    ( keys { $($key_name:ident: $key_code:ident,)*     },
+      signals  { $($event_name:ident: $event_code:ident,)* },
     ) => {
         pub struct InputState {
             $(pub $key_name: bool,)*
@@ -92,7 +92,7 @@ macro_rules! impl_input {
 }
 
 impl_input! {
-    keyboard {
+    keys {
         key_escape: Escape,
         key_space: Space,
         key_up: Up,
@@ -100,7 +100,7 @@ impl_input! {
         key_left: Left,
         key_right: Right,
     },
-    process {
+    signals {
         quit: Quit,
     },
 }
