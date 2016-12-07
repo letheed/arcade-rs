@@ -28,8 +28,8 @@ impl SdlContext {
     }
 
     fn renderer<'w>(&self, config: &Config) -> Renderer<'w> {
-        let video = self.sdl.video().unwrap();
         let (width, height) = config.definition;
+        let video = self.sdl.video().unwrap();
         let window = video.window(config.name, width, height)
                           .resizable()
                           .position_centered()

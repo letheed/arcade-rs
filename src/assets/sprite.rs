@@ -21,7 +21,7 @@ impl Sprite {
     }
 
     pub fn render(&self, renderer: &mut Renderer, surface: SdlRect) {
-        renderer.copy(&self.texture, None, Some(surface));
+        renderer.copy(&self.texture, None, Some(surface)).unwrap();
     }
 }
 
@@ -48,7 +48,7 @@ impl SpriteSheet {
     }
 
     pub fn render(&self, renderer: &mut Renderer, sprite_coord: (u32, u32), surface: SdlRect) {
-        renderer.copy(&self.texture, Some(self.select(sprite_coord)), Some(surface));
+        renderer.copy(&self.texture, Some(self.select(sprite_coord)), Some(surface)).unwrap();
     }
 }
 

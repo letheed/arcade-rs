@@ -20,7 +20,7 @@ impl<'a> Game<'a> {
         Game {
             bg_back: SlidingWindowPattern::new(&assets.star_bg, -10.),
             // bg_middle: SlidingWindowPattern::new(&assets.star_mg, -200.),
-            bg_front: SlidingWindowPattern::new(&assets.star_fg, -11.),
+            bg_front: SlidingWindowPattern::new(&assets.star_fg, -12.),
             player: Ship::new(&assets.spaceship)
         }
     }
