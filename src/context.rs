@@ -1,7 +1,7 @@
 use config::Config;
 use sdl::{EventPump, Sdl};
 use sdl::render::Renderer;
-use sdl_img::Sdl2ImageContext as SdlImg;
+use sdl::image::Sdl2ImageContext as SdlImg;
 
 pub struct SdlContext {
     sdl: Sdl,
@@ -11,7 +11,7 @@ pub struct SdlContext {
 impl SdlContext {
     pub fn init<'w>(config: &Config) -> (Self, EventPump, Renderer<'w>) {
         let sdl = ::sdl::init().unwrap();
-        let sdl_img = ::sdl_img::init(::sdl_img::INIT_PNG).unwrap();
+        let sdl_img = ::sdl::image::init(::sdl::image::INIT_PNG).unwrap();
         let context = SdlContext::new(sdl, sdl_img);
         let event_pump = context.sdl.event_pump().unwrap();
         let renderer = context.renderer(config);

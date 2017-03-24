@@ -1,6 +1,6 @@
 use sdl::EventPump;
 use sdl::event::Event::{KeyDown as SdlKeyDown, KeyUp as SdlKeyUp, Window, Quit};
-use sdl::event::WindowEventId;
+use sdl::event::WindowEvent;
 use sdl::keyboard::Keycode::{Escape, Space, Up, Down, Left, Right};
 use super::State;
 use self::KeyEvent::*;
@@ -54,8 +54,8 @@ macro_rules! impl_input {
                 self.events.clear();
                 for event in self.events.pump.poll_iter() {
                     match event {
-                        Window { win_event_id, data1, data2, .. } => match win_event_id {
-                            WindowEventId::Resized => {
+                        Window { win_event, .. } => match win_event {
+                            WindowEvent::Resized(data1, data2) => {
                                 debug_assert!(data1 >= 0 && data2 >= 0);
                                 self.definition = (data1 as u32, data2 as u32);
                                 self.definitionf64 = (data1 as f64, data2 as f64);

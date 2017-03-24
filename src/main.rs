@@ -1,5 +1,4 @@
 extern crate sdl2 as sdl;
-extern crate sdl2_image as sdl_img;
 extern crate time as time_crate;
 
 use assets::Assets;

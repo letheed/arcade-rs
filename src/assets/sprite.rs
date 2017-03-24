@@ -1,6 +1,6 @@
 use sdl::rect::Rect as SdlRect;
 use sdl::render::{Renderer, Texture, TextureQuery};
-use sdl_img::LoadTexture;
+use sdl::image::LoadTexture;
 use std::path::Path;
 
 pub struct Sprite {
