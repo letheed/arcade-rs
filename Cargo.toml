@@ -1,7 +1,7 @@
 [package]
 name = "arcade-rs"
 version = "0.1.0"
-authors = ["Letheed <dev@daweb.se>"]
+authors = ["Letheed <letheed@outlook.com>"]
 description = "Rust + SDL2 tutorial game by AydenKoans"
 repository = "https://github.com/letheed/arcade-rs"
 license = "MIT"
